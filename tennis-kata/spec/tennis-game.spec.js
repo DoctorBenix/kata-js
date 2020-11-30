@@ -1,5 +1,6 @@
-const Game = require("../Game");
-const Player = require("../Player");
+const Game = require("../src/domain/Game");
+const Player = require("../src/domain/Player");
+
 const {
   simpleCases,
   deuceCases,

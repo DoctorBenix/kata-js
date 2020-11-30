@@ -7,12 +7,18 @@ describe("Tennis game", function () {
     secondPlayer = new Player("Player 2");
   });
 
-  it("Player should have a O score by default", function () {
-    expect(firstPlayer.score).toBe(0);
+  it("Player should have a O point by default", function () {
+    expect(firstPlayer.pointNb).toBe(0);
   });
 
   it("It should display initial score game", function () {
     game = new Game(firstPlayer, secondPlayer);
     expect(game.score).toBe("Player 1 => love - love <= Player 2");
+  });
+
+  it("It should display the right score game while Player 1 scored one point", function () {
+    firstPlayer.pointNb = 1;
+    game = new Game(firstPlayer, secondPlayer);
+    expect(game.score).toBe("Player 1 => 15 - love <= Player 2");
   });
 });

@@ -1,13 +1,17 @@
 const Player = require("./Player");
 
+const tennisScore = ["love", "15"];
+
 class Game {
   constructor(firstPlayer, secondPlayer) {
-    this._player1 = firstPlayer;
-    this._player2 = secondPlayer;
+    this._firstPlayer = firstPlayer;
+    this._secondPlayer = secondPlayer;
   }
 
   get score() {
-    return `${this._player1.name} => love - love <= ${this._player2.name}`;
+    const firstPlayerScore = tennisScore[this._firstPlayer.pointNb];
+    const secondPlayerScore = tennisScore[this._secondPlayer.pointNb];
+    return `${this._firstPlayer.name} => ${firstPlayerScore} - ${secondPlayerScore} <= ${this._secondPlayer.name}`;
   }
 }
 

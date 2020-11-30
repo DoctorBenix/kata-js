@@ -1,7 +1,7 @@
 const Game = require("../Game");
 const Player = require("../Player");
 
-describe("Player score", function () {
+describe("Tennis game", function () {
   beforeEach(function () {
     firstPlayer = new Player("Player 1");
     secondPlayer = new Player("Player 2");

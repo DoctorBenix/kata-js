@@ -4,11 +4,10 @@ class Game {
   constructor(firstPlayer, secondPlayer) {
     this._player1 = firstPlayer;
     this._player2 = secondPlayer;
-    this._score = `${firstPlayer.name} => love - love <= ${secondPlayer.name}`;
   }
 
   get score() {
-    return this._score;
+    return `${this._player1.name} => love - love <= ${this._player2.name}`;
   }
 }
 

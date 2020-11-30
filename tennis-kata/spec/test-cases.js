@@ -91,4 +91,37 @@ const deuceCases = (player1Name, player2Name) => [
   },
 ];
 
-module.exports = { simpleCases, deuceCases };
+const playerAdvantageCases = (player1Name, player2Name) => [
+  {
+    firstPlayerPointNb: 4,
+    secondPlayerPointNb: 3,
+    result: `Advantage ${player1Name}`,
+  },
+  {
+    firstPlayerPointNb: 3,
+    secondPlayerPointNb: 4,
+    result: `Advantage ${player2Name}`,
+  },
+  {
+    firstPlayerPointNb: 5,
+    secondPlayerPointNb: 4,
+    result: `Advantage ${player1Name}`,
+  },
+  {
+    firstPlayerPointNb: 4,
+    secondPlayerPointNb: 5,
+    result: `Advantage ${player2Name}`,
+  },
+  {
+    firstPlayerPointNb: 38,
+    secondPlayerPointNb: 37,
+    result: `Advantage ${player1Name}`,
+  },
+  {
+    firstPlayerPointNb: 37,
+    secondPlayerPointNb: 38,
+    result: `Advantage ${player2Name}`,
+  },
+];
+
+module.exports = { simpleCases, deuceCases, playerAdvantageCases };

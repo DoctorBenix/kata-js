@@ -12,11 +12,18 @@ class Game {
     const firstPlayerScore = tennisScore[this._firstPlayer.pointNb];
     const secondPlayerScore = tennisScore[this._secondPlayer.pointNb];
     if (
-      firstPlayerScore === secondPlayerScore &&
+      this._firstPlayer.pointNb === this._secondPlayer.pointNb &&
       this._firstPlayer.pointNb > 2
     ) {
       return `${this._firstPlayer.name} => Deuce <= ${this._secondPlayer.name}`;
     } else {
+      if (this._firstPlayer.pointNb + this._secondPlayer.pointNb > 6) {
+        return `Advantage ${
+          this._firstPlayer.pointNb > this._secondPlayer.pointNb
+            ? this._firstPlayer.name
+            : this._secondPlayer.name
+        }`;
+      }
       return `${this._firstPlayer.name} => ${firstPlayerScore} - ${secondPlayerScore} <= ${this._secondPlayer.name}`;
     }
   }

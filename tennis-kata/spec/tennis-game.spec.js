@@ -1,6 +1,10 @@
 const Game = require("../Game");
 const Player = require("../Player");
-const { simpleCases, deuceCases } = require("./test-cases");
+const {
+  simpleCases,
+  deuceCases,
+  playerAdvantageCases,
+} = require("./test-cases");
 
 const FIRST_PLAYER_NAME = "Nadal";
 const SECOND_PLAYER_NAME = "Federer";
@@ -43,6 +47,7 @@ describe("Tennis game", function () {
       ${FIRST_PLAYER_NAME}: ${firstPlayerPointNb} points - 
       ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
         const game = setupGame(firstPlayerPointNb, secondPlayerPointNb);
+
         expect(game.score).toBe(result);
       });
     }
@@ -55,6 +60,20 @@ describe("Tennis game", function () {
       ${FIRST_PLAYER_NAME}: ${firstPlayerPointNb} points - 
       ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
         const game = setupGame(firstPlayerPointNb, secondPlayerPointNb);
+
+        expect(game.score).toBe(result);
+      });
+    }
+  );
+
+  // PLAYER ADVANTAGES TEST SUITE
+  playerAdvantageCases(FIRST_PLAYER_NAME, SECOND_PLAYER_NAME).forEach(
+    ({ firstPlayerPointNb, secondPlayerPointNb, result }) => {
+      it(`It should display "${result}" while 
+      ${FIRST_PLAYER_NAME}: ${firstPlayerPointNb} points - 
+      ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
+        const game = setupGame(firstPlayerPointNb, secondPlayerPointNb);
+
         expect(game.score).toBe(result);
       });
     }

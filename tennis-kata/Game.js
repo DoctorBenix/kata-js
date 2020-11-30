@@ -9,22 +9,19 @@ class Game {
   }
 
   get score() {
-    const firstPlayerScore = tennisScore[this._firstPlayer.pointNb];
-    const secondPlayerScore = tennisScore[this._secondPlayer.pointNb];
-    if (
-      this._firstPlayer.pointNb === this._secondPlayer.pointNb &&
-      this._firstPlayer.pointNb > 2
-    ) {
+    const firstPlayerPoints = this._firstPlayer.pointNb;
+    const secondPlayerPoints = this._secondPlayer.pointNb;
+    if (firstPlayerPoints === secondPlayerPoints && firstPlayerPoints > 2) {
       return `${this._firstPlayer.name} => Deuce <= ${this._secondPlayer.name}`;
     } else {
-      if (this._firstPlayer.pointNb + this._secondPlayer.pointNb > 6) {
+      if (firstPlayerPoints + secondPlayerPoints > 6) {
         return `Advantage ${
-          this._firstPlayer.pointNb > this._secondPlayer.pointNb
+          firstPlayerPoints > secondPlayerPoints
             ? this._firstPlayer.name
             : this._secondPlayer.name
         }`;
       }
-      return `${this._firstPlayer.name} => ${firstPlayerScore} - ${secondPlayerScore} <= ${this._secondPlayer.name}`;
+      return `${this._firstPlayer.name} => ${tennisScore[firstPlayerPoints]} - ${tennisScore[secondPlayerPoints]} <= ${this._secondPlayer.name}`;
     }
   }
 }

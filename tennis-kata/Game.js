@@ -1,16 +1,14 @@
+const Player = require("./Player");
+
 class Game {
-  constructor(firstPlayerName, secondPlayerName) {
-    this.player1 = new Player(firstPlayerName);
-    this.player2 = new Player(secondPlayerName);
-    this.score = 0;
+  constructor(firstPlayer, secondPlayer) {
+    this._player1 = firstPlayer;
+    this._player2 = secondPlayer;
+    this._score = `${firstPlayer.name} => love - love <= ${secondPlayer.name}`;
   }
 
   get score() {
-    return this.name;
-  }
-
-  get score() {
-    return this.score;
+    return this._score;
   }
 }
 

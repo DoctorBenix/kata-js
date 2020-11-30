@@ -1,6 +1,6 @@
 const Player = require("./Player");
 
-const tennisScore = ["love", "15"];
+const tennisScore = ["Love", "15", "30", "40"];
 
 class Game {
   constructor(firstPlayer, secondPlayer) {

@@ -14,7 +14,11 @@ class Game {
   get score() {
     const firstPlayerPoints = this._firstPlayer.pointNb;
     const secondPlayerPoints = this._secondPlayer.pointNb;
-    if (firstPlayerPoints + secondPlayerPoints < 6) {
+    if (
+      firstPlayerPoints < 4 &&
+      secondPlayerPoints < 4 &&
+      firstPlayerPoints + secondPlayerPoints < 6
+    ) {
       return simpleScoreResult(
         this._firstPlayer.name,
         this._secondPlayer.name,
@@ -22,18 +26,23 @@ class Game {
         secondPlayerPoints
       );
     } else {
-      if (firstPlayerPoints === secondPlayerPoints) {
+      if (firstPlayerPoints === secondPlayerPoints)
         return deuceScoreResult(
           this._firstPlayer.name,
           this._secondPlayer.name
         );
-      }
-      return advantageScoreResult(
-        this._firstPlayer.name,
-        this._secondPlayer.name,
-        firstPlayerPoints,
-        secondPlayerPoints
-      );
+      return Math.abs(firstPlayerPoints - secondPlayerPoints) === 1
+        ? advantageScoreResult(
+            this._firstPlayer.name,
+            this._secondPlayer.name,
+            firstPlayerPoints,
+            secondPlayerPoints
+          )
+        : `Game ${
+            firstPlayerPoints > secondPlayerPoints
+              ? this._firstPlayer.name
+              : this._secondPlayer.name
+          }`;
     }
   }
 }

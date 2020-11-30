@@ -80,4 +80,17 @@ describe("Tennis game", function () {
       });
     }
   );
+
+  // PLAYER VICTORY TEST SUITE
+  playerVictoryCases(FIRST_PLAYER_NAME, SECOND_PLAYER_NAME).forEach(
+    ({ p1Points, p2Points, result }) => {
+      it(`It should display "${result}" while 
+      ${FIRST_PLAYER_NAME}: ${p1Points} points - 
+      ${SECOND_PLAYER_NAME}: ${p2Points} points`, function () {
+        const game = setupGame(p1Points, p2Points);
+
+        expect(game.score).toBe(result);
+      });
+    }
+  );
 });

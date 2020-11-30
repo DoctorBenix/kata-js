@@ -5,6 +5,12 @@ const { simpleCases, deuceCases } = require("./test-cases");
 const FIRST_PLAYER_NAME = "Nadal";
 const SECOND_PLAYER_NAME = "Federer";
 
+const setupGame = (firstPlayerPointNb, secondPlayerPointNb) => {
+  firstPlayer.pointNb = firstPlayerPointNb;
+  secondPlayer.pointNb = secondPlayerPointNb;
+  return new Game(firstPlayer, secondPlayer);
+};
+
 describe("Tennis game", function () {
   beforeEach(function () {
     firstPlayer = new Player(FIRST_PLAYER_NAME);
@@ -36,11 +42,7 @@ describe("Tennis game", function () {
       it(`It should display ${result} while 
       ${FIRST_PLAYER_NAME}: ${firstPlayerPointNb} points - 
       ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
-        firstPlayer.pointNb = firstPlayerPointNb;
-        secondPlayer.pointNb = secondPlayerPointNb;
-
-        game = new Game(firstPlayer, secondPlayer);
-
+        const game = setupGame(firstPlayerPointNb, secondPlayerPointNb);
         expect(game.score).toBe(result);
       });
     }
@@ -52,11 +54,7 @@ describe("Tennis game", function () {
       it(`It should display ${result} while 
       ${FIRST_PLAYER_NAME}: ${firstPlayerPointNb} points - 
       ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
-        firstPlayer.pointNb = firstPlayerPointNb;
-        secondPlayer.pointNb = secondPlayerPointNb;
-
-        game = new Game(firstPlayer, secondPlayer);
-
+        const game = setupGame(firstPlayerPointNb, secondPlayerPointNb);
         expect(game.score).toBe(result);
       });
     }

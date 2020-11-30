@@ -1,8 +1,10 @@
 const Player = require("./Player");
 const {
+  pointMargin,
   simpleScoreResult,
   deuceScoreResult,
   advantageScoreResult,
+  victoryScoreResult,
 } = require("../utils/game-utils");
 
 class Game {
@@ -31,18 +33,19 @@ class Game {
           this._firstPlayer.name,
           this._secondPlayer.name
         );
-      return Math.abs(firstPlayerPoints - secondPlayerPoints) === 1
+      return pointMargin(firstPlayerPoints, secondPlayerPoints) === 1
         ? advantageScoreResult(
             this._firstPlayer.name,
             this._secondPlayer.name,
             firstPlayerPoints,
             secondPlayerPoints
           )
-        : `Game ${
-            firstPlayerPoints > secondPlayerPoints
-              ? this._firstPlayer.name
-              : this._secondPlayer.name
-          }`;
+        : victoryScoreResult(
+            this._firstPlayer.name,
+            this._secondPlayer.name,
+            firstPlayerPoints,
+            secondPlayerPoints
+          );
     }
   }
 }

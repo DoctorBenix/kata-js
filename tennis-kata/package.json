@@ -1,0 +1,17 @@
+{
+    "name": "tennis-game",
+    "version": "1.0.0",
+    "description": "This a the tennis game kata implementation",
+    "main": "tennis-game.js",
+    "dependencies": {},
+    "devDependencies": {
+        "jasmine": "^3.6.3"
+    },
+    "scripts": {
+        "start": "node tennis-game.js",
+        "test": "jasmine",
+        "toto": "jasmine examples"
+    },
+    "author": "Benjamin Belhassen",
+    "license": "ISC"
+}

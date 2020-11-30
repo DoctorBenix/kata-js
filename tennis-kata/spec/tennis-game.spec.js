@@ -1,6 +1,6 @@
 const Game = require("../Game");
 const Player = require("../Player");
-const { simpleCases } = require("./test-cases");
+const { simpleCases, deuceCases } = require("./test-cases");
 
 const FIRST_PLAYER_NAME = "Nadal";
 const SECOND_PLAYER_NAME = "Federer";
@@ -38,7 +38,25 @@ describe("Tennis game", function () {
       ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
         firstPlayer.pointNb = firstPlayerPointNb;
         secondPlayer.pointNb = secondPlayerPointNb;
+
         game = new Game(firstPlayer, secondPlayer);
+
+        expect(game.score).toBe(result);
+      });
+    }
+  );
+
+  // DEUCE CASES TEST SUITE
+  deuceCases(FIRST_PLAYER_NAME, SECOND_PLAYER_NAME).forEach(
+    ({ firstPlayerPointNb, secondPlayerPointNb, result }) => {
+      it(`It should display ${result} while 
+      ${FIRST_PLAYER_NAME}: ${firstPlayerPointNb} points - 
+      ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
+        firstPlayer.pointNb = firstPlayerPointNb;
+        secondPlayer.pointNb = secondPlayerPointNb;
+
+        game = new Game(firstPlayer, secondPlayer);
+
         expect(game.score).toBe(result);
       });
     }

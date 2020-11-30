@@ -78,4 +78,17 @@ const simpleCases = (player1Name, player2Name) => [
   },
 ];
 
-module.exports = { simpleCases };
+const deuceCases = (player1Name, player2Name) => [
+  {
+    firstPlayerPointNb: 3,
+    secondPlayerPointNb: 3,
+    result: `${player1Name} => Deuce <= ${player2Name}`,
+  },
+  {
+    firstPlayerPointNb: 4,
+    secondPlayerPointNb: 4,
+    result: `${player1Name} => Deuce <= ${player2Name}`,
+  },
+];
+
+module.exports = { simpleCases, deuceCases };

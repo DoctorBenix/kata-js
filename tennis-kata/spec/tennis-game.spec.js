@@ -5,14 +5,15 @@ const {
   simpleCases,
   deuceCases,
   playerAdvantageCases,
-} = require("./test-cases");
+  playerVictoryCases,
+} = require("./tennis-game-test-suites");
 
 const FIRST_PLAYER_NAME = "Nadal";
 const SECOND_PLAYER_NAME = "Federer";
 
-const setupGame = (firstPlayerPointNb, secondPlayerPointNb) => {
-  firstPlayer.pointNb = firstPlayerPointNb;
-  secondPlayer.pointNb = secondPlayerPointNb;
+const setupGame = (p1Points, p2Points) => {
+  firstPlayer.pointNb = p1Points;
+  secondPlayer.pointNb = p2Points;
   return new Game(firstPlayer, secondPlayer);
 };
 
@@ -43,11 +44,11 @@ describe("Tennis game", function () {
 
   // SIMPLE CASES TEST SUITE
   simpleCases(FIRST_PLAYER_NAME, SECOND_PLAYER_NAME).forEach(
-    ({ firstPlayerPointNb, secondPlayerPointNb, result }) => {
+    ({ p1Points, p2Points, result }) => {
       it(`It should display ${result} while 
-      ${FIRST_PLAYER_NAME}: ${firstPlayerPointNb} points - 
-      ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
-        const game = setupGame(firstPlayerPointNb, secondPlayerPointNb);
+      ${FIRST_PLAYER_NAME}: ${p1Points} points - 
+      ${SECOND_PLAYER_NAME}: ${p2Points} points`, function () {
+        const game = setupGame(p1Points, p2Points);
 
         expect(game.score).toBe(result);
       });
@@ -56,11 +57,11 @@ describe("Tennis game", function () {
 
   // DEUCE CASES TEST SUITE
   deuceCases(FIRST_PLAYER_NAME, SECOND_PLAYER_NAME).forEach(
-    ({ firstPlayerPointNb, secondPlayerPointNb, result }) => {
+    ({ p1Points, p2Points, result }) => {
       it(`It should display ${result} while 
-      ${FIRST_PLAYER_NAME}: ${firstPlayerPointNb} points - 
-      ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
-        const game = setupGame(firstPlayerPointNb, secondPlayerPointNb);
+      ${FIRST_PLAYER_NAME}: ${p1Points} points - 
+      ${SECOND_PLAYER_NAME}: ${p2Points} points`, function () {
+        const game = setupGame(p1Points, p2Points);
 
         expect(game.score).toBe(result);
       });
@@ -69,11 +70,11 @@ describe("Tennis game", function () {
 
   // PLAYER ADVANTAGES TEST SUITE
   playerAdvantageCases(FIRST_PLAYER_NAME, SECOND_PLAYER_NAME).forEach(
-    ({ firstPlayerPointNb, secondPlayerPointNb, result }) => {
+    ({ p1Points, p2Points, result }) => {
       it(`It should display "${result}" while 
-      ${FIRST_PLAYER_NAME}: ${firstPlayerPointNb} points - 
-      ${SECOND_PLAYER_NAME}: ${secondPlayerPointNb} points`, function () {
-        const game = setupGame(firstPlayerPointNb, secondPlayerPointNb);
+      ${FIRST_PLAYER_NAME}: ${p1Points} points - 
+      ${SECOND_PLAYER_NAME}: ${p2Points} points`, function () {
+        const game = setupGame(p1Points, p2Points);
 
         expect(game.score).toBe(result);
       });
